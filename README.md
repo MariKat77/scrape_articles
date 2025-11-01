@@ -26,6 +26,7 @@ Aplikacja oferuje:
 - Python 3.10+
 - PostgreSQL 12+
 - pip (menedżer pakietów Python)
+- Docker
 
 ## Instrukcja instalacji
 
@@ -81,7 +82,7 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-Aplikacja będzie dostępna pod adresem: `http://127.0.0.1:8000/`
+Aplikacja będzie dostępna pod adresem: `http://localhost:8000/`
 
 ### Scrapowanie artykułów
 
@@ -92,6 +93,22 @@ python manage.py scrape_articles
 ```
 
 Komenda pobiera artykuły z URL-i zdefiniowanych w pliku `articles/management/commands/scrape_articles.py` i zapisuje je w bazie danych.
+
+### Uruchomienie docker-compose
+
+Budowanie i uruchomienie w tle
+
+```bash
+docker-compose up -d --build
+```
+
+Urchomienie scrapowania
+
+```bash
+docker-compose exec web python manage.py scrape_articles
+```
+
+Aplikacja będzie dostępna pod adresem: `http://localhost:8000/`
 
 ## Struktura API
 
@@ -139,13 +156,13 @@ GET /articles/1/
 
 ```bash
 # Pobranie wszystkich artykułów
-curl http://127.0.0.1:8000/articles/
+curl http://localhost:8000/articles/
 
 # Filtrowanie po źródle
-curl http://127.0.0.1:8000/articles/?source=galicjaexpress.pl
+curl http://localhost/articles/?source=galicjaexpress.pl
 
 # Pobranie szczegółów artykułu o ID=1
-curl http://127.0.0.1:8000/articles/1/
+curl http://localhost:8000/articles/1/
 ```
 
 ## Struktura projektu
