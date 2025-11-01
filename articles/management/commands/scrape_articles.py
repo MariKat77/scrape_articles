@@ -118,7 +118,7 @@ class Command(BaseCommand):
                     'User-Agent': 'Mozilla/5.0',
                     'Accept': '*/*',
                     'Accept-Language': 'pl-PL,pl;q=0.9,en-US;q=0.8,en;q=0.7',
-                    'Accept-Encoding': 'gzip, deflate, br',
+                    'Accept-Encoding': '*/*',
                     'DNT': '1',
                     'Connection': 'keep-alive',
                     'Upgrade-Insecure-Requests': '1'
