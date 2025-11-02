@@ -110,6 +110,20 @@ docker-compose exec web python manage.py scrape_articles
 
 Aplikacja będzie dostępna pod adresem: `http://localhost:8000/`
 
+### Uruchomienie testów w docker-compose
+
+Budowanie kontenerów i uruchomienie w tle
+
+```bash
+docker-compose up -d --build
+```
+
+Następnie uruchomienie testów
+
+```bash
+docker-compose exec web python manage.py test
+```
+
 ## Struktura API
 
 ### Endpoints
